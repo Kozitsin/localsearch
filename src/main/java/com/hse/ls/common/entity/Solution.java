@@ -19,10 +19,18 @@ public class Solution {
         s.cost = this.cost;
     }
 
+    /**
+     * {@see http://www.lsi.upc.es/~mallba/public/library/TabuSearch/qap.html/}
+     */
     public int evaluate(Problem p) {
         cost = 0;
-        for (int i = 0; i < locations.length - 1; i++) {
-            cost += p.distance[locations[i]][locations[i + 1]] * p.flow[locations[i]][locations[i + 1]];
+        int n = locations.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int a = locations[i];
+                int b = locations[j];
+                cost += p.flow[i][j] * p.distance[a][b];
+            }
         }
         return cost;
     }
