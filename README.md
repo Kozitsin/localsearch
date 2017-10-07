@@ -1,5 +1,5 @@
 # Local Search Comparison
-Labs for local searches impl
+Lab for local searches impl
 
 ## Repeated local search
 1. randomly choose starting point;
@@ -7,8 +7,8 @@ Labs for local searches impl
 
 ### Current Best Result:
 #### tai20a
-Solution: `[14, 7, 15, 8, 19, 0, 3, 17, 10, 2, 4, 18, 5, 6, 1, 12, 16, 9, 11, 13]`  
-Value: `784998`
+Solution: `[1, 6, 2, 3, 19, 8, 12, 18, 13, 10, 16, 15, 14, 11, 7, 9, 17, 0, 4, 5]`  
+Value: `782952`
 
 
 ## Iterated Local Search
@@ -28,3 +28,11 @@ Value: `784998`
     3. calculate utility for each feature as: util_i = I_i * c_i / (1 + p_i);  
        where c_i - cost of feature i in objective function.
     4. increase penalty for feature with maximum utility;
+
+Note: we assume, that feature i means, that at place i we put i factory.
+So it's cost might be calculated as follows:  
+`
+    for (int j = 0; j < n; j++) {  
+        costOfFeatureI += p.distance[i][j] * p.flow[location[i]][location[j]];  
+    }  
+`  

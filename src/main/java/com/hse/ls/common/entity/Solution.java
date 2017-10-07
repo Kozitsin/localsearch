@@ -21,6 +21,8 @@ public class Solution {
 
     /**
      * {@see http://www.lsi.upc.es/~mallba/public/library/TabuSearch/qap.html/}
+     *
+     * Note: it might be improved with x2 multiplication
      */
     public int evaluate(Problem p) {
         cost = 0;
@@ -29,7 +31,7 @@ public class Solution {
             for (int j = 0; j < n; j++) {
                 int a = locations[i];
                 int b = locations[j];
-                cost += p.flow[i][j] * p.distance[a][b];
+                cost += p.flow[a][b] * p.distance[i][j];
             }
         }
         return cost;
