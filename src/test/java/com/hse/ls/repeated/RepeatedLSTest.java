@@ -43,7 +43,7 @@ public class RepeatedLSTest extends TestUtils {
     @Test
     public void testOnTai40a() {
         Problem p = Reader.read(getFile("tai40a"));
-        LocalSearchContext context = new LocalSearchContext(p, 100000);
+        LocalSearchContext context = new LocalSearchContext(p, 400000);
         RepeatedLocalSearch rls = new RepeatedLocalSearch(context);
         testOnFile(rls);
     }
