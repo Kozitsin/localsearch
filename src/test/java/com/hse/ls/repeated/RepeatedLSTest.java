@@ -35,7 +35,39 @@ public class RepeatedLSTest extends TestUtils {
     @Test
     public void testOnTai20a() {
         Problem p = Reader.read(getFile("tai20a"));
-        LocalSearchContext context = new LocalSearchContext(p, 1000);
+        LocalSearchContext context = new LocalSearchContext(p, 100000);
+        RepeatedLocalSearch rls = new RepeatedLocalSearch(context);
+        testOnFile(rls);
+    }
+
+    @Test
+    public void testOnTai40a() {
+        Problem p = Reader.read(getFile("tai40a"));
+        LocalSearchContext context = new LocalSearchContext(p, 100000);
+        RepeatedLocalSearch rls = new RepeatedLocalSearch(context);
+        testOnFile(rls);
+    }
+
+    @Test
+    public void testOnTai60a() {
+        Problem p = Reader.read(getFile("tai60a"));
+        LocalSearchContext context = new LocalSearchContext(p, 100000);
+        RepeatedLocalSearch rls = new RepeatedLocalSearch(context);
+        testOnFile(rls);
+    }
+
+    @Test
+    public void testOnTai80a() {
+        Problem p = Reader.read(getFile("tai80a"));
+        LocalSearchContext context = new LocalSearchContext(p, 100000);
+        RepeatedLocalSearch rls = new RepeatedLocalSearch(context);
+        testOnFile(rls);
+    }
+
+    @Test
+    public void testOnTai100a() {
+        Problem p = Reader.read(getFile("tai100a"));
+        LocalSearchContext context = new LocalSearchContext(p, 100000);
         RepeatedLocalSearch rls = new RepeatedLocalSearch(context);
         testOnFile(rls);
     }

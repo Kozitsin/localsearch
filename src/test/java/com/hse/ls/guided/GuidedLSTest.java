@@ -34,6 +34,38 @@ public class GuidedLSTest extends TestUtils {
     @Test
     public void testOnTai20a() {
         Problem p = Reader.read(getFile("tai20a"));
+        LocalSearchContext context = new LocalSearchContext(p, 10000);
+        GuidedLocalSearch gls = new GuidedLocalSearch(context);
+        testOnFile(gls);
+    }
+
+    @Test
+    public void testOnTai40a() {
+        Problem p = Reader.read(getFile("tai40a"));
+        LocalSearchContext context = new LocalSearchContext(p, 10000);
+        GuidedLocalSearch gls = new GuidedLocalSearch(context);
+        testOnFile(gls);
+    }
+
+    @Test
+    public void testOnTai60a() {
+        Problem p = Reader.read(getFile("tai60a"));
+        LocalSearchContext context = new LocalSearchContext(p, 1000);
+        GuidedLocalSearch gls = new GuidedLocalSearch(context);
+        testOnFile(gls);
+    }
+
+    @Test
+    public void testOnTai80a() {
+        Problem p = Reader.read(getFile("tai80a"));
+        LocalSearchContext context = new LocalSearchContext(p, 1000);
+        GuidedLocalSearch gls = new GuidedLocalSearch(context);
+        testOnFile(gls);
+    }
+
+    @Test
+    public void testOnTai100a() {
+        Problem p = Reader.read(getFile("tai100a"));
         LocalSearchContext context = new LocalSearchContext(p, 1000);
         GuidedLocalSearch gls = new GuidedLocalSearch(context);
         testOnFile(gls);

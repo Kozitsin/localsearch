@@ -23,12 +23,16 @@ public class App {
             throw new DataProcessingException("Arguments can not be empty!");
         }
 
-        String fileName = args[1];
+        if (args.length != 2) {
+            throw new DataProcessingException("There should be only 2 arguments!");
+        }
+
+        String fileName = args[0];
         if (StringUtils.isEmpty(fileName)) {
             throw new DataProcessingException("FileName must be specified!");
         }
 
-        String algo = args[2];
+        String algo = args[1];
         if (StringUtils.isEmpty(fileName)) {
             throw new DataProcessingException("Algorithm must be specified!");
         }
