@@ -34,11 +34,11 @@ So it's cost might be calculated as follows:
 ## Final Table
 | Instance | BKV      | RLS      | ILS      | GLS      |
 | -------- | -------- | -------- | -------- | -------- |
-| Tai20a   | 703482   | 782952   | 760740   | 757400   |
-| Tai40a   | 3139370  |          |          | 3386346  |
-| Tai60a   | 7205962  |          |          | 7805588  |
+| Tai20a   | 703482   | 773346   | 760740   | 757400   |
+| Tai40a   | 3139370  | 3586930  |          | 3386346  |
+| Tai60a   | 7205962  | 8224568  |          | 7805588  |
 | Tai80a   | 13499184 | 15145328 |          | 14475326 |
-| Tai100a  | 21052466 | 23582306 |          | 22414046 |
+| Tai100a  | 21052466 | 23471174 |          | 22414046 |
 
 ---
 BKV was taken from [here](https://books.google.ru/books?id=ZCu7BQAAQBAJ&pg=PA34&lpg=PA34&dq=tai20a+result&source=bl&ots=q_6tEmUoML&sig=H6st6LU13rwYhVhXH_jkfbPUymE&hl=ru&sa=X&ved=0ahUKEwjuw52V7dzWAhXqKJoKHTOtCWUQ6AEIMzAC#v=onepage&q=tai20a%20result&f=false)
