@@ -38,4 +38,13 @@ public class GuidedLSTest extends TestUtils {
         GuidedLocalSearch gls = new GuidedLocalSearch(context);
         testOnFile(gls);
     }
+
+    @Test
+    public void testOnTai60a() {
+        Problem p = Reader.read(getFile("tai60a"));
+        LocalSearchContext context = new LocalSearchContext(p, 10000);
+        GuidedLocalSearch gls = new GuidedLocalSearch(context);
+        testOnFile(gls);
+    }
+
 }

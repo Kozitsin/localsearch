@@ -5,7 +5,6 @@ import com.hse.ls.common.entity.LocalSearchContext;
 import com.hse.ls.common.entity.Problem;
 import com.hse.ls.common.entity.Solution;
 import com.hse.ls.common.io.Reader;
-import com.hse.ls.guided.GuidedLocalSearch;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -43,29 +42,32 @@ public class IteratedLSTest extends TestUtils {
     @Test
     public void testOnTai40a() {
         Problem p = Reader.read(getFile("tai40a"));
-        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        LocalSearchContext context = new LocalSearchContext(p, 1000);
+        IteratedLocalSearch ils = new IteratedLocalSearch(context);
         testOnFile(ils);
     }
 
     @Test
     public void testOnTai60a() {
         Problem p = Reader.read(getFile("tai60a"));
-        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        LocalSearchContext context = new LocalSearchContext(p, 10000);
+        IteratedLocalSearch ils = new IteratedLocalSearch(context);
         testOnFile(ils);
     }
 
     @Test
     public void testOnTai80a() {
         Problem p = Reader.read(getFile("tai80a"));
-        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        LocalSearchContext context = new LocalSearchContext(p, 10000);
+        IteratedLocalSearch ils = new IteratedLocalSearch(context);
         testOnFile(ils);
     }
 
     @Test
     public void testOnTai100a() {
         Problem p = Reader.read(getFile("tai100a"));
-        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        LocalSearchContext context = new LocalSearchContext(p, 30000);
+        IteratedLocalSearch ils = new IteratedLocalSearch(context);
         testOnFile(ils);
     }
-
 }
