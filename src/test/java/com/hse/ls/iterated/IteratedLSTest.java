@@ -1,6 +1,7 @@
 package com.hse.ls.iterated;
 
 import com.hse.ls.TestUtils;
+import com.hse.ls.common.entity.LocalSearchContext;
 import com.hse.ls.common.entity.Problem;
 import com.hse.ls.common.entity.Solution;
 import com.hse.ls.common.io.Reader;
@@ -20,7 +21,8 @@ public class IteratedLSTest extends TestUtils {
                 new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}},
                 new int[][]{{10, 11, 12}, {13, 14, 15}, {16, 17, 18}});
 
-        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        LocalSearchContext context = new LocalSearchContext(p, 10);
+        IteratedLocalSearch ils = new IteratedLocalSearch(context);
         Solution s = ils.solve();
 
         Set<Integer> set = IntStream.of(s.locations).boxed().collect(Collectors.toCollection(HashSet::new));
@@ -33,7 +35,8 @@ public class IteratedLSTest extends TestUtils {
     @Test
     public void testOnTai20a() {
         Problem p = Reader.read(getFile("tai20a"));
-        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        LocalSearchContext context = new LocalSearchContext(p, 1000);
+        IteratedLocalSearch ils = new IteratedLocalSearch(context);
         testOnFile(ils);
     }
 }

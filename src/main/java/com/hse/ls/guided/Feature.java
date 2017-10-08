@@ -1,5 +1,6 @@
 package com.hse.ls.guided;
 
+@SuppressWarnings("WeakerAccess")
 public class Feature {
     public int plant;
     public int city;

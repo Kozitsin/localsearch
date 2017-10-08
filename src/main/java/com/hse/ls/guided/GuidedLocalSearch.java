@@ -1,7 +1,7 @@
 package com.hse.ls.guided;
 
 import com.hse.ls.common.entity.LocalSearch;
-import com.hse.ls.common.entity.Problem;
+import com.hse.ls.common.entity.LocalSearchContext;
 import com.hse.ls.common.entity.Solution;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -9,15 +9,11 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class GuidedLocalSearch extends LocalSearch {
-    private static final int ITERATIONS_WITHOUT_IMPROVEMENT = 10000;
-
     private int[] penalties;
 
-    private GuidedSolution best;
-
-    public GuidedLocalSearch(Problem problem) {
-        super(problem);
-        penalties = new int[problem.dim * problem.dim];
+    public GuidedLocalSearch(final LocalSearchContext context) {
+        super(context);
+        penalties = new int[context.problem.dim * context.problem.dim];
     }
 
     private GuidedSolution localSearch(GuidedSolution prev) {
@@ -29,36 +25,27 @@ public class GuidedLocalSearch extends LocalSearch {
         for (int i = 0; i < locations.length; i++) {
             for (int j = i + 1; j < locations.length; j++) {
                 ArrayUtils.swap(locations, i, j);
-                current = new GuidedSolution(problem, ArrayUtils.clone(locations), penalties);
-
-                if (current.augmentedCost < localBest.augmentedCost) {
-                    current.copyTo(localBest);
-                }
-
-                if (current.cost < best.cost) {
-                    current.copyTo(best);
-                }
-
+                current = new GuidedSolution(context.problem, ArrayUtils.clone(locations), penalties);
+                if (current.augmentedCost < localBest.augmentedCost) current.copyTo(localBest);
+                context.storeBest(current);
                 ArrayUtils.swap(locations, i, j);
             }
         }
-
         return localBest;
     }
 
     @Override
     public Solution solve() {
-        int k = 0;
-        GuidedSolution current = new GuidedSolution(problem, penalties);
-        best = new GuidedSolution(current);
+        GuidedSolution current = new GuidedSolution(context.problem, penalties);
+        context.best = new GuidedSolution(current);
 
-        while (ITERATIONS_WITHOUT_IMPROVEMENT > k) {
+        while (!context.shouldBreak()) {
             current = localSearch(current);
             current.calculateUtility(penalties);
             updatePenalties(current);
-            k++;
         }
-        return best;
+
+        return context.best;
     }
 
     private void updatePenalties(final GuidedSolution current) {
