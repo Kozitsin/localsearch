@@ -36,4 +36,33 @@ public class IteratedLSTest extends TestUtils {
         IteratedLocalSearch ils = new IteratedLocalSearch(p);
         testOnFile(ils);
     }
+
+    @Test
+    public void testOnTai40a() {
+        Problem p = Reader.read(getFile("tai40a"));
+        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        testOnFile(ils);
+    }
+
+    @Test
+    public void testOnTai60a() {
+        Problem p = Reader.read(getFile("tai60a"));
+        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        testOnFile(ils);
+    }
+
+    @Test
+    public void testOnTai80a() {
+        Problem p = Reader.read(getFile("tai80a"));
+        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        testOnFile(ils);
+    }
+
+    @Test
+    public void testOnTai100a() {
+        Problem p = Reader.read(getFile("tai100a"));
+        IteratedLocalSearch ils = new IteratedLocalSearch(p);
+        testOnFile(ils);
+    }
+
 }
