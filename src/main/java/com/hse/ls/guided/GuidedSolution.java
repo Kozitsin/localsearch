@@ -4,6 +4,7 @@ import com.hse.ls.common.entity.Problem;
 import com.hse.ls.common.entity.Solution;
 import org.apache.commons.lang3.ArrayUtils;
 
+@SuppressWarnings("WeakerAccess")
 public class GuidedSolution extends Solution {
     /**
      * Matrix with Feature Indicators

@@ -1,6 +1,5 @@
 package com.hse.ls.common.entity;
 
-import com.hse.ls.guided.GuidedSolution;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;

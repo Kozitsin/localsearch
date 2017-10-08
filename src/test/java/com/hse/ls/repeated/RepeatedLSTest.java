@@ -1,6 +1,7 @@
 package com.hse.ls.repeated;
 
 import com.hse.ls.TestUtils;
+import com.hse.ls.common.entity.LocalSearchContext;
 import com.hse.ls.common.entity.Problem;
 import com.hse.ls.common.entity.Solution;
 import com.hse.ls.common.io.Reader;
@@ -20,7 +21,8 @@ public class RepeatedLSTest extends TestUtils {
                 new int[][]{{1,2,3}, {4,5,6}, {7,8,9}},
                 new int[][]{{10, 11, 12}, {13,14,15}, {16,17,18}});
 
-        RepeatedLocalSearch rls = new RepeatedLocalSearch(p);
+        LocalSearchContext context = new LocalSearchContext(p, 10);
+        RepeatedLocalSearch rls = new RepeatedLocalSearch(context);
         Solution s = rls.solve();
 
         Set<Integer> set = IntStream.of(s.locations).boxed().collect(Collectors.toCollection(HashSet::new));
@@ -33,7 +35,8 @@ public class RepeatedLSTest extends TestUtils {
     @Test
     public void testOnTai20a() {
         Problem p = Reader.read(getFile("tai20a"));
-        RepeatedLocalSearch rls = new RepeatedLocalSearch(p);
+        LocalSearchContext context = new LocalSearchContext(p, 1000);
+        RepeatedLocalSearch rls = new RepeatedLocalSearch(context);
         testOnFile(rls);
     }
 }
