@@ -16,6 +16,11 @@ Value: `782952`
 2. while condition not met: 
     1. find best local solution;
     2. perturb best local solution;
+
+### Current Best Result:
+#### tai20a
+Solution: `[15, 10, 11, 7, 3, 9, 18, 16, 13, 19, 1, 12, 2, 17, 14, 0, 6, 5, 4, 8]`
+Value: `760740`
     
     
 ## Guided Local Search

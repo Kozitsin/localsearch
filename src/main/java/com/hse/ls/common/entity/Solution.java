@@ -1,5 +1,6 @@
 package com.hse.ls.common.entity;
 
+import com.hse.ls.guided.GuidedSolution;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
@@ -11,6 +12,11 @@ public class Solution {
     public int[] locations;
 
     public int cost;
+
+    public Solution(Solution s) {
+        this.locations = ArrayUtils.clone(s.locations);
+        this.cost = s.cost;
+    }
 
     public Solution(Problem p) {
         this.p = p;
@@ -52,3 +58,4 @@ public class Solution {
         return Arrays.toString(locations);
     }
 }
+
