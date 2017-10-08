@@ -36,3 +36,12 @@ So it's cost might be calculated as follows:
         costOfFeatureI += p.distance[i][j] * p.flow[location[i]][location[j]];  
     }  
 `  
+### Current Best Result:
+#### tai20a
+Solution: `[0, 1, 11, 3, 4, 5, 13, 19, 8, 9, 17, 15, 12, 6, 10, 18, 16, 7, 2, 14]`  
+Value: `757400`
+
+
+---
+### Best Results: 
+`https://books.google.ru/books?id=ZCu7BQAAQBAJ&pg=PA34&lpg=PA34&dq=tai20a+result&source=bl&ots=q_6tEmUoML&sig=H6st6LU13rwYhVhXH_jkfbPUymE&hl=ru&sa=X&ved=0ahUKEwjuw52V7dzWAhXqKJoKHTOtCWUQ6AEIMzAC#v=onepage&q=tai20a%20result&f=false`

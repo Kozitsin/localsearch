@@ -1,4 +1,4 @@
-package com.hse.ls.repeated;
+package com.hse.ls.guided;
 
 import com.hse.ls.TestUtils;
 import com.hse.ls.common.entity.Problem;
@@ -12,16 +12,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class RepeatedLSTest extends TestUtils {
-
+public class GuidedLSTest extends TestUtils {
     @Test
     public void testOnSmallDataSet() {
         Problem p = new Problem(3,
                 new int[][]{{1,2,3}, {4,5,6}, {7,8,9}},
                 new int[][]{{10, 11, 12}, {13,14,15}, {16,17,18}});
 
-        RepeatedLocalSearch rls = new RepeatedLocalSearch(p);
-        Solution s = rls.solve();
+        GuidedLocalSearch gls = new GuidedLocalSearch(p);
+        Solution s = gls.solve();
 
         Set<Integer> set = IntStream.of(s.locations).boxed().collect(Collectors.toCollection(HashSet::new));
         Assert.assertEquals(set.size(), s.locations.length);
@@ -33,7 +32,7 @@ public class RepeatedLSTest extends TestUtils {
     @Test
     public void testOnTai20a() {
         Problem p = Reader.read(getFile("tai20a"));
-        RepeatedLocalSearch rls = new RepeatedLocalSearch(p);
-        testOnFile(rls);
+        GuidedLocalSearch gls = new GuidedLocalSearch(p);
+        testOnFile(gls);
     }
 }

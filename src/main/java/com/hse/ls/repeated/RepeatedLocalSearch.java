@@ -14,23 +14,23 @@ public class RepeatedLocalSearch extends LocalSearch {
 
     private void perturb(Solution s) {
         MathArrays.shuffle(s.locations);
-        s.evaluate(problem);
+        s.evaluate();
     }
 
     @Override
     public Solution solve() {
-        int i = 0;
+        int k = 0;
 
         Solution best = new Solution(problem);
         Solution current = new Solution(problem);
 
-        while (ITERATIONS_WITHOUT_IMPROVEMENT > i) {
+        while (ITERATIONS_WITHOUT_IMPROVEMENT > k) {
             perturb(current);
             if (current.cost < best.cost) {
                 current.copyTo(best);
-                i = 0;
+                k = 0;
             }
-            i++;
+            k++;
         }
         return best;
     }

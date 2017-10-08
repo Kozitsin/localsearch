@@ -6,12 +6,22 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Solution {
+    protected Problem p;
+
     public int[] locations;
+
     public int cost;
 
     public Solution(Problem p) {
+        this.p = p;
         this.locations = IntStream.rangeClosed(0, p.dim - 1).toArray();
-        this.cost = evaluate(p);
+        this.cost = evaluate();
+    }
+
+    public Solution(Problem p, int[] locations) {
+        this.p = p;
+        this.locations = locations;
+        this.cost = evaluate();
     }
 
     public void copyTo(Solution s) {
@@ -24,7 +34,7 @@ public class Solution {
      *
      * Note: it might be improved with x2 multiplication
      */
-    public int evaluate(Problem p) {
+    public int evaluate() {
         cost = 0;
         int n = locations.length;
         for (int i = 0; i < n; i++) {
